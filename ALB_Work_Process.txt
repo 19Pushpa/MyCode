@@ -1,0 +1,19 @@
+ALB:
+Creating Servers using ALB:
+^Create 3 EC2s {Have prior VPC, Subnets, RT, IGW}
+^Link some url 'embedded code' to Movies/ shows via putty server
+^Edit the EC2s with Shows, Movies edited in html.. add some shows and movies content and chk them first. 
+^Next create TG for each server, linking Welcome,Shows,Movies to each TG and their subnet grp.
+^Next LB - Take ALB -> and create ALB by giving the required info.
+  Then go to 'View/Edit rules' in LB rules -> add rule , select 'path' ; value: /shows/*  -> 'forward to' select the 'shows' TG and add Movies TG also similarly.
+% After re-reouting go and chk IPAddr/shows/ ; IPAddr/movies/ and they shuld contain the applied info
+
+^Routing DNS to required addresses:
+  Route53 DNS connections and link the same DNS in godaddy for ur domain.
+  {DNS with *(Naked domain); www }
+% ^After re-reouting go and chk domainname/shows/ ; domainname/movies/ and they shuld contain the applied info
+To make the connection secure: {https://}
+Go to EC2-LB-Listener -> Edit Listener -> select port: HTTPS,80 -> Add action: Forward -> Give ur TG -> Add.. 
+{This will route the port 80 to secure port 443}
+
+chk https://domainname/shows etc.,
