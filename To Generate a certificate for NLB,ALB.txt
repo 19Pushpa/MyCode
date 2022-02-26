@@ -1,0 +1,8 @@
+Generating a certificate:
+
+We shuld have DNS{@Route53 record} to generate a certificate:
+Certificate Manager: 
+Request a certificate -> Give ur Domain Name -> next -> DNS validation -> Review -> confirm request
+^ Have the Name and Value info and u shuld give the same info in DNS record to prove that u r the owner of this domain.
+^ @ Route53 -> Create Record -> Give RecordName -> value/Route traffic to "IP Address or another value, depending on the record type" ->Record type: "CNAME" ->Select the 'Value' info from certificate, and paste in Record-IP Address space -> Define simple record -> Create records.
+^{After sometime AWS manager will chk and confirm, if they match the Certificate will b approved in somespan of time}.
