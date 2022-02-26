@@ -1,0 +1,12 @@
+#!/bin/bash
+yum update -y 
+amazon-linux-extras install nginx1.12
+service nginx start
+echo '<h1>WEBSERVER-3</h1>' >> /usr/share/nginx/html/index.html
+
+To chk servers while using Load Balancers:
+$ while true
+> do
+> curl -sL www.mydevopsproj.com | grep -i 'WEBSERVER'
+> sleep 2
+> done
