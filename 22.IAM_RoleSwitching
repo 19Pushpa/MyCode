@@ -11,7 +11,7 @@ json file of Assume_Role_Policy:
 
 -------------------------------------------------------------------------------------
 
-IAM_Deny code:
+IAM_Deny code: {This limits 2 services as per below code.. IAM & S3}
 {
    "Version":"2012-10-17",
    "Statement":[
@@ -24,7 +24,10 @@ IAM_Deny code:
       {
          "Sid": "Statement2",
          "Effect":"Deny",
-         "Action":["iam:*"],
+         "Action":[
+         "iam:*"
+         "S3:*"
+         ],
          "Resource": "*"
       }
    ]
