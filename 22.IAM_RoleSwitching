@@ -1,4 +1,4 @@
-json file of Assume_Role_Policy:
+Code1: json file of Assume_Role_Policy:
 {
     "Version": "2012-10-17",
     "Statement": {
@@ -11,7 +11,7 @@ json file of Assume_Role_Policy:
 
 -------------------------------------------------------------------------------------
 
-IAM_Deny code: {This limits 2 services as per below code.. IAM & S3}
+Code2: IAM_Deny code: {This limits 2 services as per below code.. IAM & S3}
 {
    "Version":"2012-10-17",
    "Statement":[
@@ -32,3 +32,28 @@ IAM_Deny code: {This limits 2 services as per below code.. IAM & S3}
       }
    ]
 }
+
+
+NOTES:
+IAM users RoleSwitching using Master & 2 other Accnts: 
+
+USE CASE : >> Master Account  to Other AWS Account ( Admin access)
+
+You need to have below accounts to start with
+
+1. Master account (ID-12345)
+
+2. SubAccnt1  (ID-45678), Other SubAccnt2  (ID-78945)
+
+-- Master account (ID-12345) -- Create 2 users ( USER-01, USER-02 ) add >>Policy>>Name( Assumerole) >.JSON File code1
+
+>> Login (Other AWS SubAccnt1 (ID-45678) ) Role >> Choose Master (ID-12345) >> ADMIN Acess
+
+>> LOGIN > Master Account > IAM Login URL >> Enter (ID-45678) and SubAccnt1 >>Details..
+ 
+>> Use case >> Permission Boundry ( for any service-- Limiting few services, after adding Admin access)
+
+>> Login (Other AWS SubAccnt1 (ID-45678) ) Role >> Set Boundry >>JSON (chk code2)
+>>Link Policy to Assigned Role.. 
+
+Now login using SubAccnt1 credentials and chk-- IAM and S3 services which r given deny wont allow u saying No Permission to those services.
