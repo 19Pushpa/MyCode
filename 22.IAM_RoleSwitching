@@ -1,0 +1,31 @@
+json file of Assume_Role_Policy:
+{
+    "Version": "2012-10-17",
+    "Statement": {
+        "Effect": "Allow",
+        "Action": "sts:AssumeRole",
+        "Resource": "arn:aws:iam::410371830209:role/B22_AWS_Cloud_Admin_Role"
+        
+    }
+}
+
+-------------------------------------------------------------------------------------
+
+IAM_Deny code:
+{
+   "Version":"2012-10-17",
+   "Statement":[
+      {
+         "Sid": "Statement1",
+         "Effect":"Allow",
+         "Action":["*"],
+         "Resource": "*"
+      },
+      {
+         "Sid": "Statement2",
+         "Effect":"Deny",
+         "Action":["iam:*"],
+         "Resource": "*"
+      }
+   ]
+}
